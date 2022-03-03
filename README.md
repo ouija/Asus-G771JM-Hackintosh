@@ -99,7 +99,7 @@ Ensure BIOS has Display Memory set to 64MB and that both Secure Boot and CSM mod
 - Using cholonam's [Sinetek-rtsx.kext](https://github.com/cholonam/Sinetek-rtsx/releases) to enable SD card reader *([original version](https://github.com/sinetek/Sinetek-rtsx) is causing kernel panic in Big Sur when mounting SD card)*
 - Using Mieze's  [RealtekRTL8111.kext](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases) to enable LAN
 - Using modified version of Rehabman's [CodecCommander.kext](https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/) for `ALC668` to resolve [audio issue](https://www.tonymacx86.com/threads/alc1150-dual-boot-with-windows-and-10-10-3-no-sound-solved.162380/) when dual-booting with Windows.
-- Using acidanthera's [NVMeFix](https://github.com/acidanthera/NVMeFix) to improve support for NVMe drive and enable TRIM *(optional)*
+- NOTE: If supported, consider using acidanthera's [NVMeFix](https://github.com/acidanthera/NVMeFix) to improve support for NVMe drive and enable TRIM *(optional)*
 
 **DSDT RELATED:**
 
