@@ -28,6 +28,7 @@ It's been a very long time since I've done a *fresh install* on this unit, as I 
 	 - IMPORTANT NOTE: Remember that when updating the [AirportBrcmFixup.kext](https://github.com/acidanthera/AirportBrcmFixup) to delete/remove the `AirPortBrcm4360_Injector.kext` from plugins folder within kext to be able to support Big Sur / Monterey <i>(or there will be kernel panics becasue of this)</i>, and utilize `BlueToolFixup.kext` instead.
 	 - Updated this guide with notes on how to properly enable brightness support in Big Sur/Monterey!
 	 - Now using [USBToolBox](https://github.com/USBToolBox/tool) method for mapping USB ports as of Monterey 12.3.1, which seemed to introduce mapping issues with older USBMap method.
+	 - NOTE: There now appear to be issues with external monitors / HDMI and DisplayPort issues under Monterey which I've yet to resolve.
 
 ## Detailed Installation and Configuration Notes
 **BIOS RELATED:**
