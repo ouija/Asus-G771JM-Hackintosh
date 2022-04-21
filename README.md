@@ -25,8 +25,9 @@ It's been a very long time since I've done a *fresh install* on this unit, as I 
 	 - [Signing of Apple ID and clearing cache](https://github.com/CloverHackyColor/CloverBootloader/issues/300#issuecomment-729718708), as well as booting once from preboot with [SIP enabled](https://hackintosher.com/forums/thread/enable-disable-system-integrity-protection-sip-on-a-hackintosh.53/) seemed to finally make it work again.
  - **2021 / Monterey Update:** Came across [improved properties](https://www.tonymacx86.com/threads/success-big-sur-11-1-on-asus-rog-g771jw-opencore-0-6-5-and-clover-5128.307754/) for the Intel HD4600, which have been updated below and include fixing the low resolution / CSM boot issue AND fixed VRAM to use all 2048 MB of memory that the video card is capable of _(instead of 1536 MB)_
 	 - To upgrade to Monterey, I first updated Clover to the latest release, then updated all custom kexts to latest versions, then I had to change/set the SMBIOS definition to *MacBookPro11,5* to download and install the update, which worked flawlessly without issues.
-	 - Note: Remember that when updating the [AirportBrcmFixup.kext](https://github.com/acidanthera/AirportBrcmFixup) to delete/remove the `AirPortBrcm4360_Injector.kext` from plugins folder within kext to be able to support Big Sur / Monterey, and utilize `BlueToolFixup.kext` instead.
+	 - IMPORTANT NOTE: Remember that when updating the [AirportBrcmFixup.kext](https://github.com/acidanthera/AirportBrcmFixup) to delete/remove the `AirPortBrcm4360_Injector.kext` from plugins folder within kext to be able to support Big Sur / Monterey <i>(or there will be kernel panics becasue of this)<i>, and utilize `BlueToolFixup.kext` instead.
 	 - Updated this guide with notes on how to properly enable brightness support in Big Sur/Monterey!
+	 - Now using [USBToolBox](https://github.com/USBToolBox/tool) method for mapping USB ports as of Monterey 12.3.1, which seemed to introduce mapping issues with older USBMap method.
 
 ## Detailed Installation and Configuration Notes
 **BIOS RELATED:**
@@ -94,7 +95,7 @@ Ensure BIOS has Display Memory set to 64MB and that both Secure Boot and CSM mod
 - Using acidanthera's [AirportBrcmFixup.kext](https://github.com/acidanthera/AirportBrcmFixup) to enable wireless but need to set `brcmfx-driver=2` boot argument to enable, as well as removing `AirPortBrcm4360_Injector.kext` from plugins folder within kext to support Big Sur.
 - Using acidanthera's [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM) to enable bluetooth
 	-  `BrcmPatchRAM3.kext`, `BrcmFirmwareData.kext`, and `BlueToolFixup.kext` _(prior to Monterey, `BrcmBluetoothInjector.kext` was used instead of `BlueToolFixup.kext`)_
-- <del>Using custom **[USBMap.kext](https://github.com/corpnewt/USBMap)** to properly enable USB ports/hubs,  instead of FakePCIID.kexts *(which will cause slow startup and wifi issues in Big Sur)*<del>
+- <del>Using custom **[USBMap.kext](https://github.com/corpnewt/USBMap)** to properly enable USB ports/hubs,  instead of FakePCIID.kexts *(which will cause slow startup and wifi issues in Big Sur)*</del>
 		- Now using [USBToolBox](https://github.com/USBToolBox/tool) method for mapping USB ports as of Monterey 12.3.1, which seemed to introduce mapping issues with older USBMap method.
 	- Note this enables camera, and is also needed to enable wireless and sdcard support
 - Using cholonam's [Sinetek-rtsx.kext](https://github.com/cholonam/Sinetek-rtsx/releases) to enable SD card reader *([original version](https://github.com/sinetek/Sinetek-rtsx) is causing kernel panic in Big Sur when mounting SD card)*
