@@ -94,7 +94,8 @@ Ensure BIOS has Display Memory set to 64MB and that both Secure Boot and CSM mod
 - Using acidanthera's [AirportBrcmFixup.kext](https://github.com/acidanthera/AirportBrcmFixup) to enable wireless but need to set `brcmfx-driver=2` boot argument to enable, as well as removing `AirPortBrcm4360_Injector.kext` from plugins folder within kext to support Big Sur.
 - Using acidanthera's [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM) to enable bluetooth
 	-  `BrcmPatchRAM3.kext`, `BrcmFirmwareData.kext`, and `BlueToolFixup.kext` _(prior to Monterey, `BrcmBluetoothInjector.kext` was used instead of `BlueToolFixup.kext`)_
-- Using custom **[USBMap.kext](https://github.com/corpnewt/USBMap)** to properly enable USB ports/hubs,  instead of FakePCIID.kexts *(which will cause slow startup and wifi issues in Big Sur)*
+- <del>Using custom **[USBMap.kext](https://github.com/corpnewt/USBMap)** to properly enable USB ports/hubs,  instead of FakePCIID.kexts *(which will cause slow startup and wifi issues in Big Sur)*<del>
+		- Now using [USBToolBox](https://github.com/USBToolBox/tool) method for mapping USB ports as of Monterey 12.3.1, which seemed to introduce mapping issues with older USBMap method.
 	- Note this enables camera, and is also needed to enable wireless and sdcard support
 - Using cholonam's [Sinetek-rtsx.kext](https://github.com/cholonam/Sinetek-rtsx/releases) to enable SD card reader *([original version](https://github.com/sinetek/Sinetek-rtsx) is causing kernel panic in Big Sur when mounting SD card)*
 - Using Mieze's  [RealtekRTL8111.kext](https://github.com/Mieze/RTL8111_driver_for_OS_X/releases) to enable LAN

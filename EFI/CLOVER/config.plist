@@ -126,7 +126,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 nv_disable=1 alcid=3 -wegbeta -igfxmlr brcmfx-driver=2 -wegnoegpu</string>
+		<string>dart=0 nv_disable=1 alcid=3 -wegbeta -igfxmlr brcmfx-driver=2 -wegnoegpu -igfxhdmidivs</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -254,7 +254,7 @@
 			<true/>
 		</dict>
 		<key>ScreenResolution</key>
-		<string>1024x768</string>
+		<string>1920x1080</string>
 		<key>Theme</key>
 		<string>ouija</string>
 	</dict>
@@ -328,6 +328,8 @@
 		<true/>
 		<key>ProvideCustomSlide</key>
 		<true/>
+		<key>ResizeAppleGpuBars</key>
+		<integer>-1</integer>
 		<key>SetupVirtualMap</key>
 		<true/>
 		<key>XhciPortLimit</key>
@@ -357,7 +359,7 @@
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C025068024NGF2CJC</string>
+		<string>C02524609QXGF2CUE</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -391,9 +393,9 @@
 		<key>ProductName</key>
 		<string>MacBookPro11,5</string>
 		<key>SerialNumber</key>
-		<string>C02P71Z6G85Y</string>
+		<string>C02PVJY3G85Y</string>
 		<key>SmUUID</key>
-		<string>A47607FC-6FC8-4DAF-A545-C6DEDA2C8FA7</string>
+		<string>DF080EA4-3F65-4DBA-88BA-145F55BF79FC</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
