@@ -27,14 +27,17 @@ Note that I previously had macOS Monterey 12.6.1 installed on this machine with 
 - Followed the [Dortanio Laptop Haswell](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/haswell.html#acpi) guide to get OpenCore configured properly _(note: the guide is a little outdated and some guesswork is involved)_
 - Generated all SSDTs  _(under Windows)_ via [SSDTTime](https://github.com/corpnewt/SSDTTime), which included `FixHPET`, `FakeEC Laptop`, `PluginType`, `USB Reset`, `PCI Bridge`, `PNLF`, `XOSI`, and `Fix DMAR`
 - Mobile Intel HD 4600 working with 2048MB of VRAM and HDMI output working using `DeviceProperties` listed in the table below, which differed slightly from what I originally had defined with Clover.
+	- Ensure BIOS has `CSM` disabled or HDMI out will have issues
 - Realtek ALC668 audio working after changing **alcid** to `20` with HDMI output using `DeviceProperties` below and `alcid=20` boot arg.
 	- Audio may not work unless IRQ patching via SSDTTime `FixHPET` is in place.
 - Generate [USB Map](https://github.com/corpnewt/USBMap) _(under Windows)_ and replace/remove `USBInjectAll.kext` if present
 	- Having mapping may have fixed issues with sleep
 - Updating [AirportBrcmFixup.kext]() and/or [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM) to latest version broke wifi support for BCM94352HMB _(Using older version for now)_
 - Having issues with "Restart to black screen" with OpenCore, applied the [Fixing Shutdown/Restart](https://dortania.github.io/OpenCore-Post-Install/usb/misc/shutdown.html) patch but did not fix issue with restart, USB sleep issue fixed however, but may be due to USB mapping.
-- May need to add [GPRW to XPRW Patch](https://dortania.github.io/OpenCore-Post-Install/usb/misc/instant-wake.html) to fix Instant wake due to USB
+- Added [GPRW to XPRW Patch](https://dortania.github.io/OpenCore-Post-Install/usb/misc/instant-wake.html) to fix Instant wake due to USB, restart issue still present.
+- Added [Keyboard Wake Type property](https://dortania.github.io/OpenCore-Post-Install/usb/misc/keyboard.html#method-1-add-wake-type-property-recommended), usb keyboard wake still doesn't work
 - Modified OC to use [BsxDarkFenceLight1](https://github.com/blackosx/BsxDarkFenceLight1) theme
+- Was getting an annoying "Your computer shutdown because of an error" messages on every boot, thought maybe kernel panic was happening on shutdown, but was from testing sleep prior to usb mapping and related SSDT patches and older error log message; Resolved by clearing "Sleep Wake Failure" diag file via `rm -rf /Library/Logs/DiagnosticReports/Sleep*`
 - Still tweaking and improving, will update here accordingly.
 
 ## DeviceProperties
