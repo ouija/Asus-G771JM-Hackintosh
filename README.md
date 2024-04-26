@@ -23,6 +23,11 @@ I seem to be a glutton for punishment, and decided to revive this machine back f
 
 Note that I previously had macOS Monterey 12.6.1 installed on this machine with Clover bootloader, and an older installation guide for that can be found [here](./macOS_12/README.md) if needed.
 
+> [!WARNING]  
+> Everything is pretty much working with OpenCore now under macOS Monterey 12.6.1 **EXCEPT RESTART**, where the machine just does not seem to post back to BIOS when restart completes, and instead hangs on a "blank screen" indefinitly and have to force shutdown via power button.
+> This issue has been occuring since using OpenCore and is something to do with this bootloader and the Intel Haswell Moble chipset, from what I can tell. I've tried everything imaginable and cannot fix this for the life of me.  Never had this issue with Clover.  Any input would be appreciated!
+
+
 - Switching from Clover to OpenCore v0.9.9
 - Followed the [Dortanio Laptop Haswell](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/haswell.html#acpi) guide to get OpenCore configured properly _(note: the guide is a little outdated and some guesswork is involved)_
 - Generated all SSDTs  _(under Windows)_ via [SSDTTime](https://github.com/corpnewt/SSDTTime), which included `FixHPET`, `FakeEC Laptop`, `PluginType`, `USB Reset`, `PCI Bridge`, `PNLF`, `XOSI`, and `Fix DMAR`
@@ -34,8 +39,8 @@ Note that I previously had macOS Monterey 12.6.1 installed on this machine with 
 	- Having mapping may have fixed issues with sleep
 - Updating [AirportBrcmFixup.kext]() and/or [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM) to latest version broke wifi support for BCM94352HMB _(Using older version for now)_
 - Having issues with "Restart to black screen" with OpenCore, applied the [Fixing Shutdown/Restart](https://dortania.github.io/OpenCore-Post-Install/usb/misc/shutdown.html) patch but did not fix issue with restart, USB sleep issue fixed however, but may be due to USB mapping.
-- Added [GPRW to XPRW Patch](https://dortania.github.io/OpenCore-Post-Install/usb/misc/instant-wake.html) to fix Instant wake due to USB, restart issue still present.
-- Added [Keyboard Wake Type property](https://dortania.github.io/OpenCore-Post-Install/usb/misc/keyboard.html#method-1-add-wake-type-property-recommended), usb keyboard wake still doesn't work
+- Added [GPRW to XPRW Patch](https://dortania.github.io/OpenCore-Post-Install/usb/misc/instant-wake.html) to fix Instant wake due to USB, which was occuring but above patch helped this, but figured I'd apply this patch as well (and see if it might help "restart" issue, but did not)
+- Added [Keyboard Wake Type property](https://dortania.github.io/OpenCore-Post-Install/usb/misc/keyboard.html#method-1-add-wake-type-property-recommended), usb keyboard wake still doesn't work machine however.
 - Modified OC to use [BsxDarkFenceLight1](https://github.com/blackosx/BsxDarkFenceLight1) theme
 - Was getting an annoying "Your computer shutdown because of an error" messages on every boot, thought maybe kernel panic was happening on shutdown, but was from testing sleep prior to usb mapping and related SSDT patches and older error log message; Resolved by clearing "Sleep Wake Failure" diag file via `rm -rf /Library/Logs/DiagnosticReports/Sleep*`
 - Still tweaking and improving, will update here accordingly.
