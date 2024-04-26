@@ -19,7 +19,7 @@ I seem to be a glutton for punishment, and decided to revive this machine back f
 
 
 ## Clover to OpenCore Conversion Notes
-![image](./Images/OpenCore.png)
+<img src="https://github.com/ouija/Asus-G771JM-Hackintosh/raw/master/Images/OpenCore.png" style="width: 350px; margin-bottom:20px;">
 
 Note that I previously had macOS Monterey 12.6.1 installed on this machine with Clover bootloader, and an older installation guide for that can be found [here](./macOS_12/README.md) if needed.
 
